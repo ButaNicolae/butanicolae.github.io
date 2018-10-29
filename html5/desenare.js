@@ -46,3 +46,4 @@ function stop()
 	clearInterval(id_timer);
 	my_worker.postMessage("stop");
 }
+//-----------------------------------
