@@ -25,7 +25,7 @@ function deseneaza_cerc(context, w, h, unghi)
 function start()
 {
 	var canvas = document.getElementById("id_canvas");
-	var context = canvas.getContext("2d");
+	var context = canvas.getContext("3d");
 	
 	document.getElementById("id_start_button").disabled = true;
 	document.getElementById("id_stop_button").disabled = false;
