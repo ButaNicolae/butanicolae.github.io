@@ -23,7 +23,7 @@ function calculeaza_prime(start_value)
 		for (var i = start_value; i < start_value + 1000; i++)
 			if (is_prim(i))
 				postMessage(i);
-		start_value += 1000;	
+		start_value = i;	
 	}
 	if (start_value < 1e10)
 		setTimeout(calculeaza_prime, 1, start_value);
