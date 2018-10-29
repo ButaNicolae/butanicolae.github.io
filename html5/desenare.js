@@ -39,7 +39,7 @@ function start()
 	else
 		my_worker.postMessage("start");
 	
-	id_timer = setInterval(deseneaza_cerc, 10, context, canvas.width, canvas.height, unghi);
+	id_timer = setInterval(deseneaza_cerc, 1, context, canvas.width, canvas.height, unghi);
 }
 //-----------------------------------
 function stop()
