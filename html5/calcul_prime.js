@@ -1,11 +1,12 @@
 var stopped = false;
 
+//------------------------------ 
 onmessage = function(e){
 	if (e.data == "stop"){
 		stopped = true;
 	}
 	else
-		if(e.data == "start"){
+		if (e.data == "start"){
 			stopped = false;
 		}
 }
@@ -27,7 +28,7 @@ function calculeaza_prime(start_value)
 		for (var i = start_value; i < start_value + 1000; i++)
 			if (is_prim(i))
 				postMessage(i);
-		start_value = 1000;	
+		start_value += 1000;	
 	}
 	if (start_value < 1e10)
 		setTimeout(calculeaza_prime, 1, start_value);
@@ -35,4 +36,4 @@ function calculeaza_prime(start_value)
 		postMessage("gata");
 }
 //------------------------------
-calculeaza_prime(1e9);
+calculeaza_prime(1e9)
