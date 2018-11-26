@@ -15,7 +15,6 @@ function on_touch_start(e)
 					0, 2 * Math.PI);
 		context.stroke();
 
-		e.changedTouches[i].pageX
 
 	}	
 
