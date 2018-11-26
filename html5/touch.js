@@ -3,7 +3,7 @@ var canvas = document.getElementById("id_canvas");
 
 canvas.addEventListener("touchstart", on_touch_start);
 canvas.addEventListener("touchmove", on_touch_move);
-canvas.addEventListener("touchmove", on_touch_end);
+//canvas.addEventListener("touchmove", on_touch_end);
 
 
 
