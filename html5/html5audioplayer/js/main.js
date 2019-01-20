@@ -117,7 +117,7 @@ function prev(){
         prev = $('#playlist li:last-child');
     }
     initAudio(prev);
-
+    audio.play();
 	showDuration();
 }
 
