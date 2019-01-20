@@ -19,7 +19,7 @@ function on_result(e)
 {
 	let tokens=e.results[0][0].transcript.split(" ")
 	let isNext=tokens.find(val=>val=="next")
-	
+
 	if (isNext) {
 		 next();	
 	}
@@ -105,6 +105,7 @@ function next(){
         next = $('#playlist li:first-child');
     }
     initAudio(next);
+    audio.play();
 	showDuration();
 }
 
@@ -116,6 +117,7 @@ function prev(){
         prev = $('#playlist li:last-child');
     }
     initAudio(prev);
+
 	showDuration();
 }
 
