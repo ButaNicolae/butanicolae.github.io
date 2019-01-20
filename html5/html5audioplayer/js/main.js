@@ -29,9 +29,7 @@ function on_result(e)
 		prev();
 		break;
 		case "start" : 
-		 $('#play').click(function(){
-		 	play();
-		 });
+		 $('#play').trigger("click");
 		break;
 		case "stop" : 
 		stop();
