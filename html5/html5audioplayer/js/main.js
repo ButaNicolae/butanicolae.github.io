@@ -19,7 +19,7 @@ function on_result(e)
 {
 	let tokens = e.results[0][0].transcript.split(" ")
 	console.log(tokens)
-	let command = tokens.find(val=>val == "next" || val == "previous" || val == "start" || val == "stop" || val == "pause" )
+	let command = tokens.find(val=>val == "next" || val == "previous" || val == "play" || val == "stop" || val == "pause" )
 	switch(command) {
 
 		case "next" : 
@@ -28,7 +28,7 @@ function on_result(e)
 		case "previous" : 
 		prev();
 		break;
-		case "start" : 
+		case "play" : 
 		play();
 		break;
 		case "stop" : 
