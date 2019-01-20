@@ -30,11 +30,7 @@ function on_result(e)
 		prev();
 		break;
 		case "play" : 
-		audio.play();
-		$('#play').hide();
-		$('#pause').show();
-		$('#duration').fadeIn(400);
-		showDuration();
+		play();
 		break;
 		case "stop" : 
 		stop();
@@ -125,7 +121,7 @@ function next(){
         next = $('#playlist li:first-child');
     }
     initAudio(next);
-// audio.play();
+    audio.play();
 	showDuration();
 }
 
@@ -137,8 +133,8 @@ function prev(){
         prev = $('#playlist li:last-child');
     }
     initAudio(prev);
-    // audio.play();
-	showDuration();
+    audio.play();
+    showDuration();
 }
 
 //Prev Button
@@ -153,7 +149,7 @@ $('#playlist li').click(function () {
 	$('#play').hide();
 	$('#pause').show();
 	$('#duration').fadeIn(400);
-	// audio.play();
+	audio.play();
 	showDuration();
 });
 
