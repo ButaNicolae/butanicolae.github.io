@@ -30,10 +30,9 @@ body{
 }
 
 #audio-image{
-	position: relative;
+	position:relative;
 	overflow:hidden;
-	height:200px;
-	width: 330px;
+	height:300px;
 	margin-bottom:15px;
 }
 
@@ -73,6 +72,12 @@ input#volume::-webkit-slider-thumb {
 	overflow:auto;
 }
 
+button#id_speak{
+	width:40px;
+	height:30px;
+	margin-left:50px;
+	float: center;
+}
 
 button#play{
 	width:70px;
@@ -96,14 +101,15 @@ button#prev{
 	width:70px;
 	height:70px;
 	background:url(../images/prev.png) no-repeat;
-	margin-top: 15px;
-	margin-left:70px;
+	float:left;
+	margin-top:15px;
 }
 
 button#next{
 	width:70px;
 	height:70px;
 	background:url(../images/next.png) no-repeat;
+	float:right;
 	margin-top:15px;
 }
 

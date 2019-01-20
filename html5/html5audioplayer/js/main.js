@@ -1,4 +1,29 @@
 var audio;
+document.getElementById("id_speak").addEventListener("click", on_speak);
+var speak = new webkitSpeechRecognition();
+speak.onresult = on_result;
+speak.onspeechend = on_speech_end;
+speak.lang = "en-US";
+
+function on_speak()
+{
+	speak.start();
+}
+
+function on_speech_end()
+{
+	speak.stop();
+}
+
+function on_result(e)
+{
+	let tokens=e.results[0][0].transcript.split(" ")
+	let isNext=tokens.find(val=>val=="next")
+	
+	if (isNext) {
+		 next();	
+	}
+}
 
 //Hide Pause Initially
 $('#pause').hide();
@@ -9,7 +34,7 @@ initAudio($('#playlist li:first-child'));
 function initAudio(element){
 	var song = element.attr('song');
     var title = element.text();
-    // var cover = element.attr('cover');
+    var cover = element.attr('cover');
     var artist = element.attr('artist');
 
 	//Create a New Audio Object
@@ -22,8 +47,8 @@ function initAudio(element){
 	$('#audio-player .title').text(title);
     $('#audio-player .artist').text(artist);
 	
-	//Insert Cover video
-	$('video.song').attr('src','media/' + song);
+	//Insert Cover Image
+	$('img.cover').attr('src','images/covers/' + cover);
 	
 	$('#playlist li').removeClass('active');
     element.addClass('active');
@@ -32,49 +57,71 @@ function initAudio(element){
 
 //Play Button
 $('#play').click(function(){
+	play();
+});
+
+function play(){
 	audio.play();
 	$('#play').hide();
 	$('#pause').show();
 	$('#duration').fadeIn(400);
 	showDuration();
-});
+}
 
 //Pause Button
 $('#pause').click(function(){
+	pause();
+});
+
+function pause(){
 	audio.pause();
 	$('#pause').hide();
 	$('#play').show();
-});
+}
 	
 //Stop Button
 $('#stop').click(function(){
+	stop();
+});
+
+function stop(){
 	audio.pause();		
 	audio.currentTime = 0;
 	$('#pause').hide();
 	$('#play').show();
 	$('#duration').fadeOut(400);
-});
+}
 
 //Next Button
 $('#next').click(function(){
-    audio.pause();
+    next();
+});
+
+function next(){
+
+	audio.pause();
     var next = $('#playlist li.active').next();
     if (next.length == 0) {
         next = $('#playlist li:first-child');
     }
     initAudio(next);
 	showDuration();
-});
+}
 
-//Prev Button
-$('#prev').click(function(){
-    audio.pause();
+function prev(){
+
+	audio.pause();
     var prev = $('#playlist li.active').prev();
     if (prev.length == 0) {
         prev = $('#playlist li:last-child');
     }
     initAudio(prev);
 	showDuration();
+}
+
+//Prev Button
+$('#prev').click(function(){
+	prev();
 });
 
 //Playlist Song Click
@@ -84,8 +131,10 @@ $('#playlist li').click(function () {
 	$('#play').hide();
 	$('#pause').show();
 	$('#duration').fadeIn(400);
+	audio.play();
 	showDuration();
 });
+
 
 //Volume Control
 $('#volume').change(function(){
