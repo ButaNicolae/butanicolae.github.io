@@ -23,58 +23,21 @@ function on_result(e)
 	switch(command) {
 
 		case "next" : 
-						$('#next').click(function(){
-							    audio.pause();
-							    var next = $('#playlist li.active').next();
-							    if (next.length == 0) {
-							        next = $('#playlist li:first-child');
-							    }
-							    initAudio(next);
-							    audio.play();
-								showDuration();
-							});
+		next();
 		break;
-
 		case "previous" : 
-						$('#prev').click(function(){
-								audio.pause();
-							    var prev = $('#playlist li.active').prev();
-							    if (prev.length == 0) {
-							        prev = $('#playlist li:last-child');
-							    }
-							    initAudio(prev);
-							    audio.play();
-								showDuration();
-							});
+		prev();
 		break;
-
 		case "start" : 
-						 $('#play').click(function(){
-								audio.play();
-								$('#play').hide();
-								$('#pause').show();
-								$('#duration').fadeIn(400);
-								showDuration();
-							});
+		 $('#play').click(function(){
+		 	play();
+		 });
 		break;
-
 		case "stop" : 
-						 $('#stop').click(function(){
-								audio.pause();		
-								audio.currentTime = 0;
-								$('#pause').hide();
-								$('#play').show();
-								$('#duration').fadeOut(400);
-							});
+		stop();
 		break;
-
 		case "pause" : 
-						$('#pause').click(function(){
-								audio.pause();
-								$('#pause').hide();
-								$('#play').show();
-							});
-
+		pause();
 		break;
 	}	
 }
@@ -111,33 +74,50 @@ function initAudio(element){
 
 //Play Button
 $('#play').click(function(){
+	play();
+});
+
+function play(){
+
 	audio.play();
 	$('#play').hide();
 	$('#pause').show();
 	$('#duration').fadeIn(400);
 	showDuration();
-});
-
+}
 
 //Pause Button
 $('#pause').click(function(){
+	pause();
+});
+
+function pause(){
 	audio.pause();
 	$('#pause').hide();
 	$('#play').show();
-});
+}
 	
 //Stop Button
 $('#stop').click(function(){
+	stop();
+});
+
+function stop(){
 	audio.pause();		
 	audio.currentTime = 0;
 	$('#pause').hide();
 	$('#play').show();
 	$('#duration').fadeOut(400);
-});
+}
 
 //Next Button
 $('#next').click(function(){
-    audio.pause();
+    next();
+});
+
+function next(){
+
+	audio.pause();
     var next = $('#playlist li.active').next();
     if (next.length == 0) {
         next = $('#playlist li:first-child');
@@ -145,10 +125,10 @@ $('#next').click(function(){
     initAudio(next);
     audio.play();
 	showDuration();
-});
+}
 
-//Prev Button
-$('#prev').click(function(){
+function prev(){
+
 	audio.pause();
     var prev = $('#playlist li.active').prev();
     if (prev.length == 0) {
@@ -157,6 +137,11 @@ $('#prev').click(function(){
     initAudio(prev);
     audio.play();
 	showDuration();
+}
+
+//Prev Button
+$('#prev').click(function(){
+	prev();
 });
 
 //Playlist Song Click
