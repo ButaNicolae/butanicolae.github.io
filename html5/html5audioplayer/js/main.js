@@ -17,12 +17,27 @@ function on_speech_end()
 
 function on_result(e)
 {
-	let tokens=e.results[0][0].transcript.split(" ")
-	let isNext=tokens.find(val=>val=="next")
+	let tokens = e.results[0][0].transcript.split(" ")
+	console.log(tokens)
+	let command = tokens.find(val=>val == "next" || val == "previous" || val == "start" || val == "stop" || val == "pause" )
+	switch(command) {
 
-	if (isNext) {
-		 next();	
-	}
+		case "next" : 
+		next();
+		break;
+		case "previous" : 
+		prev();
+		break;
+		case "start" : 
+		play();
+		break;
+		case "stop" : 
+		stop();
+		break;
+		case "pause" : 
+		pause();
+		break;
+	}	
 }
 
 //Hide Pause Initially
