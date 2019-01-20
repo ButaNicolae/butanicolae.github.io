@@ -18,7 +18,7 @@ function on_speech_end()
 function on_result(e)
 {
 	let tokens = e.results[0][0].transcript.split(" ")
-	console.log(tokens)
+	alert(tokens)
 	let command = tokens.find(val=>val == "next" || val == "previous" || val == "start" || val == "stop" || val == "pause" )
 	switch(command) {
 
@@ -76,6 +76,7 @@ $('#play').click(function(){
 });
 
 function play(){
+
 	audio.play();
 	$('#play').hide();
 	$('#pause').show();
@@ -120,7 +121,7 @@ function next(){
         next = $('#playlist li:first-child');
     }
     initAudio(next);
-    audio.play();
+    // audio.play();
 	showDuration();
 }
 
@@ -132,7 +133,7 @@ function prev(){
         prev = $('#playlist li:last-child');
     }
     initAudio(prev);
-    audio.play();
+    // audio.play();
 	showDuration();
 }
 
@@ -148,7 +149,7 @@ $('#playlist li').click(function () {
 	$('#play').hide();
 	$('#pause').show();
 	$('#duration').fadeIn(400);
-	audio.play();
+	// audio.play();
 	showDuration();
 });
 
