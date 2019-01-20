@@ -30,7 +30,11 @@ function on_result(e)
 		prev();
 		break;
 		case "play" : 
-		play();
+		audio.play();
+		$('#play').hide();
+		$('#pause').show();
+		$('#duration').fadeIn(400);
+		showDuration();
 		break;
 		case "stop" : 
 		stop();
