@@ -29,7 +29,7 @@ function on_result(e)
 		prev();
 		break;
 		case "play" : 
-		play();
+		$('#play').trigger("click");
 		break;
 		case "stop" : 
 		stop();
