@@ -18,8 +18,8 @@ function on_speech_end()
 function on_result(e)
 {
 	let tokens = e.results[0][0].transcript.split(" ")
-	alert(tokens)
-	let command = tokens.find(val=>val == "next" || val == "previous" || val == "start" || val == "stop" || val == "pause" )
+	console.log(tokens)
+	let command = tokens.find(val=>val == "next" || val == "previous" || val == "play" || val == "stop" || val == "pause" )
 	switch(command) {
 
 		case "next" : 
@@ -28,10 +28,8 @@ function on_result(e)
 		case "previous" : 
 		prev();
 		break;
-		case "start" : 
-		 $('#play').trigger("click");
-		 		 console.log("cas")
-
+		case "play" : 
+		$('#play').trigger("click");
 		break;
 		case "stop" : 
 		stop();
@@ -135,8 +133,13 @@ function prev(){
         prev = $('#playlist li:last-child');
     }
     initAudio(prev);
+<<<<<<< HEAD
     // audio.play();
 	showDuration();
+=======
+    audio.play();
+    showDuration();
+>>>>>>> f3f19f14d73a1afb06a0f9b83061627cdedb90e0
 }
 
 //Prev Button
